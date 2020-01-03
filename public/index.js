@@ -39,6 +39,16 @@ app.get("/anything", async (req, res) => {
     res.status(500).send();
   }
 });
+app.get("/showcase/:id", async (req, res) => {
+  const title = req.params.id;
+  try {
+    res.render("showcase", {
+      title: `${title}`
+    });
+  } catch {
+    res.status(500).send();
+  }
+});
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
